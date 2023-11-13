@@ -1,7 +1,8 @@
 package christmas.model;
 
+import static christmas.constant.ErrorDetail.DATE_ERROR;
+
 public class RequestReservation {
-    private final String ERROR_MESSAGE = "유효하지 않은 날짜입니다. 다시 입력해 주세요.\n";
     private final Integer date;
 
     public RequestReservation(String date) {
@@ -18,13 +19,13 @@ public class RequestReservation {
         try {
             return Integer.parseInt(date);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
+            throw new IllegalArgumentException(DATE_ERROR);
         }
     }
 
     private void validate(Integer date) {
         if (date < 1 || date > 31) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
+            throw new IllegalArgumentException(DATE_ERROR);
         }
     }
 

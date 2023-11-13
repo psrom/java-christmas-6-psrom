@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.constant.Menu;
 import christmas.controller.PromotionController;
 
 public class Application {

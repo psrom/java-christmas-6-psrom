@@ -7,9 +7,10 @@ public class Output {
         System.out.print(OutputMessage.START_MESSAGE.getMessage());
     }
 
-    public void printEventPlanner(RequestReservation date) {
+    public void printMenu() {
 
     }
+
 
 
 }
