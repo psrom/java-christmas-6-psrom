@@ -32,9 +32,11 @@ public class PromotionController {
         outputView.printRecipe(validatedOrder);
 
         totalAmount = BillCalculator.totalAmount(validatedOrder);
-        outputView.printBeforeDiscount(validatedOrder, totalAmount);
+        outputView.printBeforeDiscount(totalAmount);
 
         outputView.printGift(totalAmount);
+
+        outputView.printChristmasEvent(requestReservation.getDate());
 
     }
 }

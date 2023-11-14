@@ -37,4 +37,13 @@ public class PromotionHandlerTest {
 
     }
 
+    @DisplayName("1 ~ 25일 크리스마스 이벤트")
+    @Test
+    void testChristmasEvent_inRange() {
+        for (int i = 1; i <= 25; i++) {
+            int expectedResult = 1000 + 100 * (i - 1);
+            assertEquals(expectedResult, PromotionHandler.christmasEvent(i));
+        }
+    }
+
 }

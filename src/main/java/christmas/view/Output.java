@@ -37,7 +37,7 @@ public class Output {
         System.out.println();
     }
 
-    public void printBeforeDiscount(Map<String, Integer> orders, int totalAmount) {
+    public void printBeforeDiscount(int totalAmount) {
         System.out.println(OutputMessage.BEFORE_DISCOUNT.getMessage());
         System.out.println(formatTotalPrice(totalAmount));
         System.out.println();
@@ -46,6 +46,14 @@ public class Output {
     public void printGift(int amountBeforeDiscount) {
         System.out.println(OutputMessage.GIFT.getMessage());
         System.out.println(PromotionHandler.champagneEvent(amountBeforeDiscount));
+        System.out.println();
+    }
+
+    public void printChristmasEvent(int date) {
+        System.out.println(OutputMessage.PROMOTION_DETAIL.getMessage());
+        int amount = PromotionHandler.christmasEvent(date);
+        String formattedEvent = PromotionHandler.formatChristmasEvent(amount);
+        System.out.println(OutputMessage.CHRISTMAS_EVENT.getMessage() + formattedEvent);
     }
 
     private static void printCategory(String categoryName, Menu.MenuCategory[] menuItems) {
