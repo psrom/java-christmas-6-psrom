@@ -7,7 +7,11 @@ import java.util.Map;
 import static christmas.constant.ErrorDetail.*;
 
 public class OrderValidator {
-    private static Integer totalNumberOfMenu = 0;
+    protected static Integer totalNumberOfMenu = 0;
+
+    protected static void resetTotalNumberOfMenu() {
+        totalNumberOfMenu = 0;
+    }
 
     public static Map<String, Integer> checkOrder(Map<String, Integer> splitOrders) {
         int numberOfBeverage = 0;
@@ -26,7 +30,7 @@ public class OrderValidator {
         return splitOrders;
     }
 
-    // 입력받은 값이 메뉴판에 있는지 확인
+    // 입력 받은 값이 메뉴판에 있는지 확인
     private static void checkMenuInConstant(String menuName) {
         boolean isInAppetizer = containsInEnum(menuName, Menu.애피타이저.values());
         boolean isInMainMenu = containsInEnum(menuName, Menu.메인.values());
@@ -40,12 +44,13 @@ public class OrderValidator {
         }
     }
 
+    // 주문 수량 확인
     private static void validateQuantity(Integer quantity) {
         if (quantity <= 0) {
             throw new IllegalArgumentException(ORDER_ERROR.getMessage());
         }
 
-        if (quantity > 20 || totalNumberOfMenu > 20) {
+        if (quantity > 20 || (totalNumberOfMenu + quantity) > 20) {
             throw new IllegalArgumentException(MAXIMUM_ORDER_ERROR.getMessage());
         }
 

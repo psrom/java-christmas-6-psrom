@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RequestOrderTest {
 
-    @DisplayName("유효한 입력 메뉴,수량 split 검사")
+    @DisplayName("유효한 입력에 대한 <메뉴-수량> split 테스트")
     @Test
-    void createValidateOrders() {
+    void createValidOrder() {
         RequestOrder requestOrder = new RequestOrder("해산물파스타-2, 레드와인-1, 초코케이크-1, 타파스-1");
         Map<String, Integer> splitOrders = requestOrder.splitOrders("해산물파스타-2, 레드와인-1, 초코케이크-1, 타파스-1");
 
@@ -25,7 +25,7 @@ public class RequestOrderTest {
 
     @DisplayName("형식이 잘못된 입력 예외 처리")
     @Test
-    void createInvalidateOrders() {
+    void createInvalidOrders() {
         assertThatThrownBy(() -> new RequestOrder("2-해산물파스타, 레드와인-1, 초코케이크-1, 타파스-1"))
                 .isInstanceOf(IllegalArgumentException.class);
 
