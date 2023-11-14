@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.model.BillCalculator;
 import christmas.model.RequestOrder;
 import christmas.model.RequestReservation;
 import christmas.view.Input;
@@ -12,6 +13,7 @@ public class PromotionController {
     private RequestOrder requestOrder;
     private Output outputView;
     private Input inputView;
+    private int totalAmount;
 
 
     public PromotionController() {
@@ -28,7 +30,11 @@ public class PromotionController {
 
         outputView.printEventPreviewMessage();
         outputView.printRecipe(validatedOrder);
-        outputView.printBeforeDiscount(validatedOrder);
+
+        totalAmount = BillCalculator.totalAmount(validatedOrder);
+        outputView.printBeforeDiscount(validatedOrder, totalAmount);
+
+        outputView.printGift(totalAmount);
 
     }
 }

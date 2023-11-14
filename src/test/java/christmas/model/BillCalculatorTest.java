@@ -23,7 +23,7 @@ public class BillCalculatorTest {
         orders.put("제로콜라", 2);
 
 
-        assertEquals(123000, BillCalculator.totalAmount(orders));
+        assertEquals(123_000, BillCalculator.totalAmount(orders));
 
     }
 }

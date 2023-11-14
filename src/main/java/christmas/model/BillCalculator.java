@@ -20,4 +20,5 @@ public class BillCalculator {
 
         return totalAmount;
     }
+
 }
