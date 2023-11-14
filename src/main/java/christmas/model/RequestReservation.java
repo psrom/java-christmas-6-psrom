@@ -9,6 +9,10 @@ public class RequestReservation {
         this.date = convertAndValidate(date);
     }
 
+    public Integer getDate() {
+        return date;
+    }
+
     private Integer convertAndValidate(String date) {
         Integer parsedDate = convertType(date);
         validate(parsedDate);
