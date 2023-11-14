@@ -21,6 +21,16 @@ public class Output {
         printLine();
     }
 
+    public void printRecipe(Map<String, Integer> orders) {
+        System.out.println(OutputMessage.RECIPE.getMessage());
+        for (Map.Entry<String, Integer> entry : orders.entrySet()) {
+            String menu = entry.getKey();
+            Integer quantity = entry.getValue();
+            System.out.println(String.format("%s %d개", menu, quantity));
+        }
+        System.out.println();
+    }
+
     public void printEventPreviewMessage() {
         System.out.println(OutputMessage.PREVIEW_MESSAGE.getMessage());
         System.out.println();

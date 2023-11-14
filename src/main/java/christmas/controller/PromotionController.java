@@ -27,6 +27,7 @@ public class PromotionController {
         Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
 
         outputView.printEventPreviewMessage();
+        outputView.printRecipe(validatedOrder);
         outputView.printBeforeDiscount(validatedOrder);
 
     }
