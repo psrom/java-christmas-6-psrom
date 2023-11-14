@@ -1,5 +1,7 @@
 package christmas.constant;
 
+import java.util.Arrays;
+
 public class Menu {
     public interface MenuCategory {
         int getPrice();
@@ -71,6 +73,30 @@ public class Menu {
         public int getPrice() {
             return price;
         }
+    }
+
+    public static Menu.MenuCategory getCategory(String menuName) {
+        for (Menu.애피타이저 appetizer : Menu.애피타이저.values()) {
+            if (appetizer.name().equals(menuName)) {
+                return appetizer;
+            }
+        }
+        for (Menu.메인 main : Menu.메인.values()) {
+            if (main.name().equals(menuName)) {
+                return main;
+            }
+        }
+        for (Menu.디저트 dessert : Menu.디저트.values()) {
+            if (dessert.name().equals(menuName)) {
+                return dessert;
+            }
+        }
+        for (Menu.음료 beverage : Menu.음료.values()) {
+            if (beverage.name().equals(menuName)) {
+                return beverage;
+            }
+        }
+        return null;
     }
 
 }

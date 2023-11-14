@@ -21,7 +21,7 @@ public class OrderValidatorTest {
         OrderValidator.resetTotalNumberOfMenu();
     }
 
-    @DisplayName("유효한 입력에 대한 유효성 테스트")
+    @DisplayName("올바른 입력에 대한 유효성 테스트")
     @Test
     void createValidOrder() {
         orders.put("해산물파스타", 2);

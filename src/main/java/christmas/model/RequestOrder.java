@@ -15,6 +15,10 @@ public class RequestOrder {
         this.validatedOrder = checkOrder(splitOrders(orders));
     }
 
+    public Map<String, Integer> getValidatedOrder() {
+        return validatedOrder;
+    }
+
     protected Map<String, Integer> splitOrders(String order) {
         Map<String, Integer> splitMenu = new HashMap<>();
 

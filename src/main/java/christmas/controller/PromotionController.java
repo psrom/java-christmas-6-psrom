@@ -1,10 +1,11 @@
 package christmas.controller;
 
-import christmas.constant.MenuPrinter;
 import christmas.model.RequestOrder;
 import christmas.model.RequestReservation;
 import christmas.view.Input;
 import christmas.view.Output;
+
+import java.util.Map;
 
 public class PromotionController {
     private RequestReservation requestReservation;
@@ -22,8 +23,11 @@ public class PromotionController {
 
         outputView.printStartMessage();
         requestReservation = inputView.requestDate();
-        MenuPrinter.printMenu();
-        requestOrder = inputView.requestOrder();
+        outputView.printMenu();
+        Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
+
+        outputView.printEventPreviewMessage();
+        outputView.printBeforeDiscount(validatedOrder);
 
     }
 }
