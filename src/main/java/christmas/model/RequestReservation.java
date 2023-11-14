@@ -1,6 +1,6 @@
 package christmas.model;
 
-import static christmas.constant.ErrorDetail.DATE_ERROR;
+import christmas.constant.ErrorDetail;
 
 public class RequestReservation {
     private final Integer date;
@@ -19,13 +19,13 @@ public class RequestReservation {
         try {
             return Integer.parseInt(date);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(DATE_ERROR);
+            throw new IllegalArgumentException(ErrorDetail.DATE_ERROR.getMessage());
         }
     }
 
     private void validate(Integer date) {
         if (date < 1 || date > 31) {
-            throw new IllegalArgumentException(DATE_ERROR);
+            throw new IllegalArgumentException(ErrorDetail.DATE_ERROR.getMessage());
         }
     }
 

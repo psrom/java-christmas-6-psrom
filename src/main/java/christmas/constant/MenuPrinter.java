@@ -1,11 +1,16 @@
+
 package christmas.constant;
 
 public class MenuPrinter {
     public static void printMenu() {
-        printCategory("애피타이저", Menu.Appetizer.values());
-        printCategory("메인", Menu.MainMenu.values());
-        printCategory("디저트", Menu.Dessert.values());
-        printCategory("음료", Menu.Beverage.values());
+        printLine();
+
+        printCategory("애피타이저", Menu.애피타이저.values());
+        printCategory("메인", Menu.메인.values());
+        printCategory("디저트", Menu.디저트.values());
+        printCategory("음료", Menu.음료.values());
+
+        printLine();
     }
 
     private static void printCategory(String categoryName, Menu.MenuCategory[] menuItems) {
@@ -16,11 +21,18 @@ public class MenuPrinter {
                 System.out.print(", ");
             }
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     private static String formatPrice(int price) {
         return String.format("(%,d)", price);
+    }
+
+    private static void printLine() {
+        for (int i = 0; i < 80; i++) {
+            System.out.print("=");
+        }
+        System.out.println();
     }
 
 }
