@@ -15,7 +15,7 @@ public class RequestOrder {
         this.validatedOrder = checkOrder(splitOrders(orders));
     }
 
-    private Map<String, Integer> splitOrders(String order) {
+    protected Map<String, Integer> splitOrders(String order) {
         Map<String, Integer> splitMenu = new HashMap<>();
 
         String[] orderParts = order.split(",");
