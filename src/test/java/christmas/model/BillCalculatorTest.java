@@ -12,7 +12,7 @@ public class BillCalculatorTest {
 
     private Map<String, Integer> orders;
 
-    @DisplayName("할인 전 음식 금액 총액 확인")
+    @DisplayName("할인 전 음식 금액 총액 테스트")
     @Test
     void createValidateCalculator() {
         orders = new HashMap<>();
@@ -22,8 +22,14 @@ public class BillCalculatorTest {
         orders.put("아이스크림", 3);
         orders.put("제로콜라", 2);
 
-
         assertEquals(123_000, BillCalculator.totalAmount(orders));
 
+    }
+
+    @DisplayName("할인 후 예상 결제 금액 테스트")
+    @Test
+    void createExpectedAmountCalculator() {
+        int result = BillCalculator.expectedAmount(120_000, 25_000);
+        assertEquals(120_000, result);
     }
 }

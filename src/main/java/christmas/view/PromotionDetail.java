@@ -5,18 +5,16 @@ import christmas.model.promotionHandler.*;
 
 import java.util.Map;
 
-import static christmas.constant.PromotionDiscount.NONE;
-import static christmas.constant.PromotionDiscount.SPECIAL_DISCOUNT;
+import static christmas.constant.PromotionDiscount.*;
 
 public class PromotionDetail {
     private static final String NO_PROMOTION = "없음";
-    private static final int MINIMUM_AMOUNT = 10_000;
 
-    public void printPromotions(int date, Map<String, Integer> orders, int amountBeforeDiscount) {
+    public int printPromotions(int date, Map<String, Integer> orders, int amountBeforeDiscount) {
         int totalDiscount = 0;
-        boolean checkOrder = checkOrderAmount(amountBeforeDiscount);
-
         int champagneNumber = printChampagne(amountBeforeDiscount);
+
+        boolean checkOrder = checkOrderAmount(amountBeforeDiscount);
         totalDiscount += printChristmasEvent(date, checkOrder);
         totalDiscount += printDayOfWeekPromotion(date, orders, checkOrder);
         totalDiscount += printDayOfWeekendPromotion(date, orders, checkOrder);
@@ -24,13 +22,19 @@ public class PromotionDetail {
         totalDiscount += printChampagnePrice(champagneNumber, checkOrder);
         printTotalPromotion(totalDiscount, checkOrder);
 
-        if (!checkOrder) {
-            System.out.println(NO_PROMOTION);
-        }
+        return totalDiscount;
+    }
+
+    public void printBadgePromotion(int totalDiscountAmount) {
+        System.out.println();
+        System.out.println(OutputMessage.BADGE_EVENT.getMessage());
+        System.out.println(Badge.badgePromotion(totalDiscountAmount));
     }
 
     private boolean checkOrderAmount(int orderAmount) {
-        if (orderAmount < MINIMUM_AMOUNT) {
+        System.out.println(OutputMessage.PROMOTION_DETAIL.getMessage());
+        if (orderAmount < MINIMUM_AMOUNT.getAmount()) {
+            System.out.println(NO_PROMOTION);
             return false;
         }
         return true;
@@ -50,10 +54,9 @@ public class PromotionDetail {
     }
 
     private int printChristmasEvent(int date, boolean checkOrder) {
-        System.out.println(OutputMessage.PROMOTION_DETAIL.getMessage());
         if (checkOrder) {
             int amount = Christmas.christmasPromotion(date);
-            String formattedAmount = TypeFormat.formatChristmasPromotion(amount);
+            String formattedAmount = formatChristmasPromotion(amount);
             System.out.println(OutputMessage.CHRISTMAS_EVENT.getMessage() + formattedAmount);
             return amount;
         }
@@ -98,10 +101,11 @@ public class PromotionDetail {
     }
 
     private void printTotalPromotion(int totalAmount, boolean checkOrder) {
-        if (checkOrder) {
-            System.out.println();
-            System.out.println(OutputMessage.TOTAL_DISCOUNT_AMOUNT.getMessage() + formatTotalPrice(totalAmount));
-        }
+        System.out.println();
+        System.out.println(OutputMessage.TOTAL_DISCOUNT_AMOUNT.getMessage());
+        if (checkOrder && totalAmount != NONE.getAmount()) {
+            System.out.print("-");
+        } System.out.println(formatTotalPrice(totalAmount));
     }
 
     private static String formatTotalPrice(int price) {
@@ -111,4 +115,9 @@ public class PromotionDetail {
     private static String formatChampagne(int count) {
         return String.format("샴페인 %d개", count);
     }
+
+    public static String formatChristmasPromotion(int amount) {
+        return formatTotalPrice(amount);
+    }
+
 }

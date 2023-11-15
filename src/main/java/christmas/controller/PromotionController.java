@@ -17,30 +17,73 @@ public class PromotionController {
     private int totalAmount;
 
 
-    public PromotionController() {
+    public void start() {
+        setupViews();
+        printInitialMessages();
+        processReservation();
+    }
+
+    private void setupViews() {
         outputView = new Output();
         inputView = new Input();
         promotionView = new PromotionDetail();
     }
 
-    public void start() {
-
+    private void printInitialMessages() {
         outputView.printStartMessage();
         requestReservation = inputView.requestDate();
+    }
+
+    private void processReservation() {
         int chosenDate = requestReservation.getDate();
+        Map<String, Integer> validatedOrder = getValidatedOrder();
+        printEventPreview(chosenDate, validatedOrder);
+        calculateAndPrintTotal(chosenDate, validatedOrder);
+    }
 
+    private Map<String, Integer> getValidatedOrder() {
         outputView.printMenu();
-        Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
+        return inputView.requestOrder().getValidatedOrder();
+    }
 
+    private void printEventPreview(int chosenDate, Map<String, Integer> validatedOrder) {
         outputView.printEventPreviewMessage(chosenDate);
         outputView.printRecipe(validatedOrder);
+    }
+
+    private void calculateAndPrintTotal(int chosenDate, Map<String, Integer> validatedOrder) {
 
         totalAmount = BillCalculator.totalAmount(validatedOrder);
         outputView.printBeforeDiscount(totalAmount);
 
-        promotionView.printPromotions(chosenDate, validatedOrder, totalAmount);
+        int totalDiscount = promotionView.printPromotions(chosenDate, validatedOrder, totalAmount);
+        int totalBill = BillCalculator.expectedAmount(totalAmount, totalDiscount);
+        outputView.printAfterDiscount(totalBill);
+        promotionView.printBadgePromotion(totalDiscount);
 
-        BillCalculator.alertMinimumBill(totalAmount);
+        outputView.alertMinimumBill(totalAmount);
 
     }
+
+//    public void start() {
+//
+////        int chosenDate = requestReservation.getDate();
+//
+////        outputView.printMenu();
+////        Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
+//
+////        outputView.printEventPreviewMessage(chosenDate);
+////        outputView.printRecipe(validatedOrder);
+//
+////        totalAmount = BillCalculator.totalAmount(validatedOrder);
+////        outputView.printBeforeDiscount(totalAmount);
+////
+////        int totalDiscount = promotionView.printPromotions(chosenDate, validatedOrder, totalAmount);
+////        int totalBill = BillCalculator.expectedAmount(totalAmount, totalDiscount);
+////        outputView.printAfterDiscount(totalBill);
+////        promotionView.printBadgePromotion(totalDiscount);
+////
+////        outputView.alertMinimumBill(totalAmount);
+//
+//    }
 }

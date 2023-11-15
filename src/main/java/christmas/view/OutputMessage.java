@@ -14,8 +14,9 @@ public enum OutputMessage {
     DAY_OF_WEEKEND_EVENT("주말 할인: -"),
     SPECIAL_EVENT("특별 할인: -1,000원"),
     GIFT_EVENT("증정 이벤트: -"),
-    TOTAL_DISCOUNT_AMOUNT("<총혜택 금액>\n-"),
-    EXPECTED_AMOUNT("<할인 후 예상 결제 금액>\n");
+    TOTAL_DISCOUNT_AMOUNT("<총혜택 금액>"),
+    EXPECTED_AMOUNT("<할인 후 예상 결제 금액>"),
+    BADGE_EVENT("<12월 이벤트 배지>");
 
 
 

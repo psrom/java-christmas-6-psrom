@@ -5,6 +5,9 @@ import christmas.model.promotionHandler.*;
 
 import java.util.Map;
 
+import static christmas.constant.ErrorDetail.MINIMUM_AMOUNT_ALLERT;
+import static christmas.constant.PromotionDiscount.MINIMUM_AMOUNT;
+
 public class Output {
     public void printStartMessage() {
         System.out.println(OutputMessage.START_MESSAGE.getMessage());
@@ -39,6 +42,19 @@ public class Output {
         System.out.println(OutputMessage.BEFORE_DISCOUNT.getMessage());
         System.out.println(formatTotalPrice(totalAmount));
         System.out.println();
+    }
+
+    public void printAfterDiscount(int totalBill) {
+        System.out.println();
+        System.out.println(OutputMessage.EXPECTED_AMOUNT.getMessage());
+        System.out.println(formatTotalPrice(totalBill));
+    }
+
+    public static void alertMinimumBill(int totalAmount) {
+        if (totalAmount < MINIMUM_AMOUNT.getAmount()) {
+            System.out.println();
+            System.out.println(MINIMUM_AMOUNT_ALLERT.getMessage());
+        }
     }
 
     private static void printCategory(String categoryName, Menu.MenuCategory[] menuItems) {
