@@ -3,6 +3,7 @@ package christmas.constant;
 public class Menu {
     public interface MenuCategory {
         int getPrice();
+        boolean isDessert();
     }
 
     public enum 애피타이저 implements MenuCategory{
@@ -20,6 +21,12 @@ public class Menu {
         public int getPrice() {
             return price;
         }
+
+        @Override
+        public boolean isDessert() {
+            return false;
+        }
+
     }
 
     public enum 메인 implements MenuCategory {
@@ -38,6 +45,11 @@ public class Menu {
         public int getPrice() {
             return price;
         }
+
+        @Override
+        public boolean isDessert() {
+            return false;
+        }
     }
 
     public enum 디저트 implements MenuCategory {
@@ -53,6 +65,11 @@ public class Menu {
         @Override
         public int getPrice() {
             return price;
+        }
+
+        @Override
+        public boolean isDessert() {
+            return true;
         }
     }
 
@@ -70,6 +87,11 @@ public class Menu {
         @Override
         public int getPrice() {
             return price;
+        }
+
+        @Override
+        public boolean isDessert() {
+            return false;
         }
     }
 

@@ -3,8 +3,8 @@ package christmas.model.promotionHandler;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-import static christmas.constant.Promotion.PROMOTION_MONTH;
-import static christmas.constant.Promotion.PROMOTION_YEAR;
+import static christmas.constant.DateValue.PROMOTION_MONTH;
+import static christmas.constant.DateValue.PROMOTION_YEAR;
 
 public class DayOfWeekend {
     // 주말 프로모션

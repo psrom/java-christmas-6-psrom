@@ -7,9 +7,8 @@ import java.util.Map;
 import static christmas.constant.ErrorDetail.*;
 
 public class OrderValidator {
-    protected static Integer totalNumberOfMenu = 0;
-
-    protected static void resetTotalNumberOfMenu() {
+    private static Integer totalNumberOfMenu = 0;
+    public static void resetTotalNumberOfMenu() {
         totalNumberOfMenu = 0;
     }
 
@@ -22,6 +21,8 @@ public class OrderValidator {
 
             checkMenuInConstant(menu);
             validateQuantity(quantity);
+
+            totalNumberOfMenu += quantity;
 
             numberOfBeverage = countBeverage(menu, numberOfBeverage);
 
@@ -54,7 +55,6 @@ public class OrderValidator {
             throw new IllegalArgumentException(MAXIMUM_ORDER_ERROR.getMessage());
         }
 
-        totalNumberOfMenu += quantity;
     }
 
     private static int countBeverage(String menuName, int numberOfBeverage) {

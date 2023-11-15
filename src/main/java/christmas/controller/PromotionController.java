@@ -37,7 +37,10 @@ public class PromotionController {
 
         outputView.printGift(totalAmount);
 
-//        outputView.printChristmasEvent(chosenDate);
+        outputView.printChristmasEvent(chosenDate);
+        outputView.printDayOfWeekPromotion(chosenDate, validatedOrder);
+
+
         BillCalculator.alertMinimumBill(totalAmount);
 
     }

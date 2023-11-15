@@ -3,7 +3,7 @@ package christmas.model.promotionHandler;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-import static christmas.constant.Promotion.*;
+import static christmas.constant.DateValue.*;
 
 public class SpecialDay {
     // 특별 프로모션

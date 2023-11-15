@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.constant.Menu;
+import christmas.model.promotionHandler.DayOfWeek;
 import christmas.model.promotionHandler.TypeFormat;
 import christmas.model.promotionHandler.Champagne;
 import christmas.model.promotionHandler.Christmas;
@@ -52,8 +53,16 @@ public class Output {
     public void printChristmasEvent(int date) {
         System.out.println(OutputMessage.PROMOTION_DETAIL.getMessage());
         int amount = Christmas.christmasPromotion(date);
-        String formattedEvent = TypeFormat.formatChristmasPromotion(amount);
-        System.out.println(OutputMessage.CHRISTMAS_EVENT.getMessage() + formattedEvent);
+        String formattedAmount = TypeFormat.formatChristmasPromotion(amount);
+        System.out.println(OutputMessage.CHRISTMAS_EVENT.getMessage() + formattedAmount);
+    }
+
+    public void printDayOfWeekPromotion(int date, Map<String, Integer> orders) {
+        int amount = DayOfWeek.dayOfWeekPromotion(date, orders);
+        if (amount > 0) {
+            String formattedAmount = formatTotalPrice(amount);
+            System.out.println(OutputMessage.DAY_OF_WEEK_EVENT.getMessage() + formattedAmount);
+        }
     }
 
     private static void printCategory(String categoryName, Menu.MenuCategory[] menuItems) {

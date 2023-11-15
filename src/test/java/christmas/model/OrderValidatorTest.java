@@ -24,13 +24,14 @@ public class OrderValidatorTest {
     @DisplayName("올바른 입력에 대한 유효성 테스트")
     @Test
     void createValidOrder() {
-        orders.put("해산물파스타", 2);
-        orders.put("레드와인", 18);
+
+        orders.put("해산물파스타", 17);
+        orders.put("레드와인", 3);
 
         Map<String, Integer> result = OrderValidator.checkOrder(orders);
 
-        assertEquals(2, result.get("해산물파스타"));
-        assertEquals(18, result.get("레드와인"));
+        assertEquals(17, result.get("해산물파스타"));
+        assertEquals(3, result.get("레드와인"));
 
     }
 

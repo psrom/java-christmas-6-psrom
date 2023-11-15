@@ -1,6 +1,6 @@
 package christmas.model.promotionHandler;
 
-import static christmas.constant.Promotion.CHRISTMAS_DAY;
+import static christmas.constant.DateValue.CHRISTMAS_DAY;
 
 public class Christmas {
     // 할인 프로모션 - 크리스마스 디데이
