@@ -1,10 +1,7 @@
 package christmas.view;
 
 import christmas.constant.Menu;
-import christmas.model.promotionHandler.DayOfWeek;
-import christmas.model.promotionHandler.TypeFormat;
-import christmas.model.promotionHandler.Champagne;
-import christmas.model.promotionHandler.Christmas;
+import christmas.model.promotionHandler.*;
 
 import java.util.Map;
 
@@ -62,6 +59,14 @@ public class Output {
         if (amount > 0) {
             String formattedAmount = formatTotalPrice(amount);
             System.out.println(OutputMessage.DAY_OF_WEEK_EVENT.getMessage() + formattedAmount);
+        }
+    }
+
+    public void printDayOfWeekendPromotion(int date, Map<String, Integer> orders) {
+        int amount = DayOfWeekend.dayOfWeekendPromotion(date, orders);
+        if (amount > 0) {
+            String formattedAmount = formatTotalPrice(amount);
+            System.out.println(OutputMessage.DAY_OF_WEEKEND_EVENT.getMessage() + formattedAmount);
         }
     }
 

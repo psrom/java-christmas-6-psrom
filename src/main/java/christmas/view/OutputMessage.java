@@ -10,7 +10,8 @@ public enum OutputMessage {
     GIFT("<증정 메뉴>"),
     PROMOTION_DETAIL("<혜택 내역>"),
     CHRISTMAS_EVENT("크리스마스 디데이 할인: -"),
-    DAY_OF_WEEK_EVENT("평일 할인: -");
+    DAY_OF_WEEK_EVENT("평일 할인: -"),
+    DAY_OF_WEEKEND_EVENT("주말 할인: -");
 
     private final String message;
 

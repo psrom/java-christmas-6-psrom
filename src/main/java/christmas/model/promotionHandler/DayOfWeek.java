@@ -10,11 +10,12 @@ import static christmas.constant.DateValue.PROMOTION_YEAR;
 import static christmas.constant.PromotionDiscount.WEEK_DISCOUNT;
 
 public class DayOfWeek {
+    // 평일 프로모션
     public static int dayOfWeekPromotion(int day, Map<String, Integer> orders) {
         if (validateDayOfWeek(day)) {
-            int discount = dayOfWeekDiscountAmount(orders);
-            return discount;
-        } return 0;
+            return dayOfWeekDiscountAmount(orders);
+        }
+        return 0;
     }
 
     private static boolean validateDayOfWeek(int day) {
@@ -45,6 +46,5 @@ public class DayOfWeek {
         }
         return 0;
     }
-
 
 }

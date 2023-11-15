@@ -4,6 +4,7 @@ public class Menu {
     public interface MenuCategory {
         int getPrice();
         boolean isDessert();
+        boolean isMainDish();
     }
 
     public enum 애피타이저 implements MenuCategory{
@@ -24,6 +25,11 @@ public class Menu {
 
         @Override
         public boolean isDessert() {
+            return false;
+        }
+
+        @Override
+        public boolean isMainDish() {
             return false;
         }
 
@@ -50,6 +56,11 @@ public class Menu {
         public boolean isDessert() {
             return false;
         }
+
+        @Override
+        public boolean isMainDish() {
+            return true;
+        }
     }
 
     public enum 디저트 implements MenuCategory {
@@ -71,6 +82,11 @@ public class Menu {
         public boolean isDessert() {
             return true;
         }
+
+        @Override
+        public boolean isMainDish() {
+            return false;
+        }
     }
 
     public enum 음료 implements MenuCategory {
@@ -91,6 +107,11 @@ public class Menu {
 
         @Override
         public boolean isDessert() {
+            return false;
+        }
+
+        @Override
+        public boolean isMainDish() {
             return false;
         }
     }

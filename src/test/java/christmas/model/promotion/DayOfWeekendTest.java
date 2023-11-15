@@ -1,7 +1,7 @@
 package christmas.model.promotion;
 
 import christmas.model.promotionHandler.DayOfWeek;
-import org.junit.jupiter.api.BeforeEach;
+import christmas.model.promotionHandler.DayOfWeekend;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,19 +11,19 @@ import java.util.Map;
 import static christmas.constant.PromotionDiscount.WEEK_DISCOUNT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DayOfWeekTest {
+public class DayOfWeekendTest {
+
     private Map<String, Integer> orders;
 
-    @DisplayName("주중 이벤트 - 일요일부터 목요일까지")
+    @DisplayName("주말 이벤트 - 금요일, 토요일")
     @Test
-    void testDayOfWeekEvent_SundayToThursday() {
+    void testDayOfWeekendEvent() {
         orders = new HashMap<>();
-        orders.put("초코케이크", 1);
+        orders.put("티본스테이크", 1);
 
-        for (int i = 3; i < 8; i++) {
-            int result = DayOfWeek.dayOfWeekPromotion(i, orders);
+        for (int i = 1; i < 3; i++) {
+            int result = DayOfWeekend.dayOfWeekendPromotion(i, orders);
             assertEquals(WEEK_DISCOUNT.getAmount(), result);
         }
     }
-
 }
