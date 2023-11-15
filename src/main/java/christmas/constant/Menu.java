@@ -1,5 +1,7 @@
 package christmas.constant;
 
+import java.util.EnumSet;
+
 public class Menu {
     public interface MenuCategory {
         int getPrice();
@@ -118,28 +120,23 @@ public class Menu {
         }
     }
 
-    public static Menu.MenuCategory getCategory(String menuName) {
-        for (Menu.애피타이저 appetizer : Menu.애피타이저.values()) {
-            if (appetizer.name().equals(menuName)) {
-                return appetizer;
-            }
-        }
-        for (Menu.메인 main : Menu.메인.values()) {
-            if (main.name().equals(menuName)) {
-                return main;
-            }
-        }
-        for (Menu.디저트 dessert : Menu.디저트.values()) {
-            if (dessert.name().equals(menuName)) {
-                return dessert;
-            }
-        }
-        for (Menu.음료 beverage : Menu.음료.values()) {
-            if (beverage.name().equals(menuName)) {
-                return beverage;
+    public static MenuCategory getCategory(String menuName) {
+        for (Class<?> categoryClass : new Class<?>[]{애피타이저.class, 메인.class, 디저트.class, 음료.class}) {
+            EnumSet<? extends Enum<?>> items = EnumSet.allOf((Class<? extends Enum>) categoryClass);
+            for (Enum<?> item : items) {
+                if (item.name().equals(menuName)) {
+                    return (MenuCategory) item;
+                }
             }
         }
         return null;
     }
+
+    // 위의 코드와 동일한 기능
+    // for (Menu.애피타이저 appetizer : Menu.애피타이저.values()) {
+    //  if (appetizer.name().equals(menuName)) {
+    //      return appetizer;
+    //      }
+    //  }
 
 }

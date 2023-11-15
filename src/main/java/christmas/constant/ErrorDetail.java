@@ -6,7 +6,7 @@ public enum ErrorDetail {
     MAXIMUM_ORDER_ERROR("메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다. (e.g. 시저샐러드-1, 티본스테이크-1, 크리스마스파스타-1, 제로콜라-3, 아이스크림-1의 총개수는 7개)"),
     ONLY_BEVERAGE_ERROR("음료만 주문 시, 주문할 수 없습니다."),
     DUPLICATE_ERROR("중복된 메뉴가 있습니다. 메뉴는 한 번씩만 입력해 주세요."),
-    MINIMUM_AMOUNT_ALLERT("❗만원 미만 주문시 모든 이벤트 혜택을 받을 수 없습니다.");
+    MINIMUM_AMOUNT_ALERT("❗만원 미만 주문시 모든 이벤트 혜택을 받을 수 없습니다.");
 
     public static final String ERROR_PREFIX = "[ERROR] ";
     private final String errorMessage;

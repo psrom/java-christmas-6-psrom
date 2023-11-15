@@ -18,6 +18,7 @@ public class DayOfWeek {
         return 0;
     }
 
+    // 평일인지 확인
     private static boolean validateDayOfWeek(int day) {
         LocalDate date = LocalDate.of(PROMOTION_YEAR.getDay(), PROMOTION_MONTH.getDay(), day);
         java.time.DayOfWeek dayOfWeek = date.getDayOfWeek();
@@ -25,6 +26,7 @@ public class DayOfWeek {
         return (dayOfWeek != java.time.DayOfWeek.FRIDAY) && (dayOfWeek != java.time.DayOfWeek.SATURDAY);
     }
 
+    // 디저트에 해당하면 할인 적용
     private static int dayOfWeekDiscountAmount(Map<String, Integer> orders) {
         int discountAmount = 0;
 

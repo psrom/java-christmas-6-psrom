@@ -30,7 +30,6 @@ public class RequestOrder {
             Integer quantity = extractQuantity(itemParts);
 
             validateDuplicate(splitMenu, menu);
-
             splitMenu.put(menu, quantity);
         }
         return splitMenu;

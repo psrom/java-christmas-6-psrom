@@ -65,25 +65,4 @@ public class PromotionController {
 
     }
 
-//    public void start() {
-//
-////        int chosenDate = requestReservation.getDate();
-//
-////        outputView.printMenu();
-////        Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
-//
-////        outputView.printEventPreviewMessage(chosenDate);
-////        outputView.printRecipe(validatedOrder);
-//
-////        totalAmount = BillCalculator.totalAmount(validatedOrder);
-////        outputView.printBeforeDiscount(totalAmount);
-////
-////        int totalDiscount = promotionView.printPromotions(chosenDate, validatedOrder, totalAmount);
-////        int totalBill = BillCalculator.expectedAmount(totalAmount, totalDiscount);
-////        outputView.printAfterDiscount(totalBill);
-////        promotionView.printBadgePromotion(totalDiscount);
-////
-////        outputView.alertMinimumBill(totalAmount);
-//
-//    }
 }

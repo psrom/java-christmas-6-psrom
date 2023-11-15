@@ -1,11 +1,10 @@
 package christmas.view;
 
 import christmas.constant.Menu;
-import christmas.model.promotionHandler.*;
 
 import java.util.Map;
 
-import static christmas.constant.ErrorDetail.MINIMUM_AMOUNT_ALLERT;
+import static christmas.constant.ErrorDetail.MINIMUM_AMOUNT_ALERT;
 import static christmas.constant.PromotionDiscount.MINIMUM_AMOUNT;
 
 public class Output {
@@ -53,7 +52,7 @@ public class Output {
     public static void alertMinimumBill(int totalAmount) {
         if (totalAmount < MINIMUM_AMOUNT.getAmount()) {
             System.out.println();
-            System.out.println(MINIMUM_AMOUNT_ALLERT.getMessage());
+            System.out.println(MINIMUM_AMOUNT_ALERT.getMessage());
         }
     }
 

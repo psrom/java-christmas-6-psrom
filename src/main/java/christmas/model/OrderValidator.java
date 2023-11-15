@@ -22,13 +22,11 @@ public class OrderValidator {
 
             checkMenuInConstant(menu);
             validateQuantity(quantity);
-
             totalNumberOfMenu += quantity;
 
             numberOfBeverage = countBeverage(menu, numberOfBeverage);
 
-        }
-        checkBeverageValidation(splitOrders, numberOfBeverage);
+        } checkBeverageValidation(splitOrders, numberOfBeverage);
         return splitOrders;
     }
 

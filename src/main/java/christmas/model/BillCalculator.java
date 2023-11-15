@@ -4,7 +4,6 @@ import christmas.constant.Menu;
 
 import java.util.Map;
 
-import static christmas.constant.PromotionDiscount.MINIMUM_AMOUNT;
 import static christmas.model.promotionHandler.Champagne.champagnePromotion;
 
 public class BillCalculator {
@@ -19,7 +18,6 @@ public class BillCalculator {
 
             int totalPrice = category.getPrice() * quantity;
             totalAmount += totalPrice;
-
         }
 
         return totalAmount;
