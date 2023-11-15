@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class PromotionController {
     private RequestReservation requestReservation;
-    private RequestOrder requestOrder;
     private Output outputView;
     private Input inputView;
     private int totalAmount;
@@ -25,10 +24,12 @@ public class PromotionController {
 
         outputView.printStartMessage();
         requestReservation = inputView.requestDate();
+        int chosenDate = requestReservation.getDate();
+
         outputView.printMenu();
         Map<String, Integer> validatedOrder = inputView.requestOrder().getValidatedOrder();
 
-        outputView.printEventPreviewMessage();
+        outputView.printEventPreviewMessage(chosenDate);
         outputView.printRecipe(validatedOrder);
 
         totalAmount = BillCalculator.totalAmount(validatedOrder);
@@ -36,7 +37,8 @@ public class PromotionController {
 
         outputView.printGift(totalAmount);
 
-        outputView.printChristmasEvent(requestReservation.getDate());
+//        outputView.printChristmasEvent(chosenDate);
+        BillCalculator.alertMinimumBill(totalAmount);
 
     }
 }

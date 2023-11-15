@@ -1,12 +1,11 @@
 package christmas.view;
 
 import christmas.constant.Menu;
-import christmas.model.PromotionHandler;
-import christmas.model.RequestOrder;
+import christmas.model.promotionHandler.TypeFormat;
+import christmas.model.promotionHandler.Champagne;
+import christmas.model.promotionHandler.Christmas;
 
 import java.util.Map;
-
-import static christmas.model.BillCalculator.totalAmount;
 
 public class Output {
     public void printStartMessage() {
@@ -32,8 +31,9 @@ public class Output {
         System.out.println();
     }
 
-    public void printEventPreviewMessage() {
-        System.out.println(OutputMessage.PREVIEW_MESSAGE.getMessage());
+    public void printEventPreviewMessage(Integer date) {
+        String previewMessage = String.format(OutputMessage.PREVIEW_MESSAGE.getMessage(), date);
+        System.out.println(previewMessage);
         System.out.println();
     }
 
@@ -45,14 +45,14 @@ public class Output {
 
     public void printGift(int amountBeforeDiscount) {
         System.out.println(OutputMessage.GIFT.getMessage());
-        System.out.println(PromotionHandler.champagneEvent(amountBeforeDiscount));
+        System.out.println(Champagne.champagnePromotion(amountBeforeDiscount));
         System.out.println();
     }
 
     public void printChristmasEvent(int date) {
         System.out.println(OutputMessage.PROMOTION_DETAIL.getMessage());
-        int amount = PromotionHandler.christmasEvent(date);
-        String formattedEvent = PromotionHandler.formatChristmasEvent(amount);
+        int amount = Christmas.christmasPromotion(date);
+        String formattedEvent = TypeFormat.formatChristmasPromotion(amount);
         System.out.println(OutputMessage.CHRISTMAS_EVENT.getMessage() + formattedEvent);
     }
 

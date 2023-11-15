@@ -1,7 +1,5 @@
 package christmas.constant;
 
-import java.util.Arrays;
-
 public class Menu {
     public interface MenuCategory {
         int getPrice();
