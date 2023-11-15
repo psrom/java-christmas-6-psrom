@@ -14,7 +14,8 @@ public class DayOfWeekend {
     public static int dayOfWeekendPromotion(int day, Map<String, Integer> orders) {
         if (validateDayOfWeekend(day)) {
             return dayOfWeekendDiscountAmount(orders);
-        } return 0;
+        }
+        return 0;
     }
 
     private static boolean validateDayOfWeekend(int day) {

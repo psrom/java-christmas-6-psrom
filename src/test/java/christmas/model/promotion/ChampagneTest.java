@@ -13,8 +13,8 @@ public class ChampagneTest {
     void testChampagneEvent_NoGift() {
 
         int amount = 100_000;
-        String result = Champagne.champagnePromotion(amount);
-        assertEquals("없음", result);
+        int result = Champagne.champagnePromotion(amount);
+        assertEquals(0, result);
 
     }
 
@@ -23,8 +23,8 @@ public class ChampagneTest {
     void testChampagneEvent_WithGift() {
 
         int amount = 120_000;
-        String result = Champagne.champagnePromotion(amount);
-        assertEquals("샴페인 1개", result);
+        int result = Champagne.champagnePromotion(amount);
+        assertEquals(1, result);
 
     }
 
@@ -33,8 +33,8 @@ public class ChampagneTest {
     void testChampagneEvent_WithTwoGifts() {
 
         int amount = 240_000;
-        String result = Champagne.champagnePromotion(amount);
-        assertEquals("샴페인 2개", result);
+        int result = Champagne.champagnePromotion(amount);
+        assertEquals(2, result);
 
     }
 

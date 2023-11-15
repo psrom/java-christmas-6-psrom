@@ -11,7 +11,13 @@ public enum OutputMessage {
     PROMOTION_DETAIL("<혜택 내역>"),
     CHRISTMAS_EVENT("크리스마스 디데이 할인: -"),
     DAY_OF_WEEK_EVENT("평일 할인: -"),
-    DAY_OF_WEEKEND_EVENT("주말 할인: -");
+    DAY_OF_WEEKEND_EVENT("주말 할인: -"),
+    SPECIAL_EVENT("특별 할인: -1,000원"),
+    GIFT_EVENT("증정 이벤트: -"),
+    TOTAL_DISCOUNT_AMOUNT("<총혜택 금액>\n-"),
+    EXPECTED_AMOUNT("<할인 후 예상 결제 금액>\n");
+
+
 
     private final String message;
 

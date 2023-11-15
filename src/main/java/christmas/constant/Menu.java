@@ -3,11 +3,13 @@ package christmas.constant;
 public class Menu {
     public interface MenuCategory {
         int getPrice();
+
         boolean isDessert();
+
         boolean isMainDish();
     }
 
-    public enum 애피타이저 implements MenuCategory{
+    public enum 애피타이저 implements MenuCategory {
         양송이수프(6000),
         타파스(5500),
         시저샐러드(8000);

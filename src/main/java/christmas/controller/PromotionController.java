@@ -5,11 +5,13 @@ import christmas.model.RequestOrder;
 import christmas.model.RequestReservation;
 import christmas.view.Input;
 import christmas.view.Output;
+import christmas.view.PromotionDetail;
 
 import java.util.Map;
 
 public class PromotionController {
     private RequestReservation requestReservation;
+    private PromotionDetail promotionView;
     private Output outputView;
     private Input inputView;
     private int totalAmount;
@@ -18,6 +20,7 @@ public class PromotionController {
     public PromotionController() {
         outputView = new Output();
         inputView = new Input();
+        promotionView = new PromotionDetail();
     }
 
     public void start() {
@@ -35,12 +38,7 @@ public class PromotionController {
         totalAmount = BillCalculator.totalAmount(validatedOrder);
         outputView.printBeforeDiscount(totalAmount);
 
-        outputView.printGift(totalAmount);
-
-        outputView.printChristmasEvent(chosenDate);
-        outputView.printDayOfWeekPromotion(chosenDate, validatedOrder);
-        outputView.printDayOfWeekendPromotion(chosenDate, validatedOrder);
-
+        promotionView.printPromotions(chosenDate, validatedOrder, totalAmount);
 
         BillCalculator.alertMinimumBill(totalAmount);
 

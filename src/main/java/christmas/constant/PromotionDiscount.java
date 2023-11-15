@@ -1,8 +1,9 @@
 package christmas.constant;
 
 public enum PromotionDiscount {
-    WEEK_DISCOUNT(2023),
-    SPECIAL_DISCOUNT(1000);
+    WEEK_DISCOUNT(2_023),
+    SPECIAL_DISCOUNT(1_000),
+    NONE(0);
 
     private final int amount;
 

@@ -8,6 +8,7 @@ import static christmas.constant.ErrorDetail.*;
 
 public class OrderValidator {
     private static Integer totalNumberOfMenu = 0;
+
     public static void resetTotalNumberOfMenu() {
         totalNumberOfMenu = 0;
     }
